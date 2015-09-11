@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1560C92-D40D-430F-8971-A5C5019A66E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KPCodeGen.Entity</RootNamespace>
+    <AssemblyName>KPCodeGen.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.ActiveRecord">
+      <HintPath>..\Lib\ActiveRecord\Castle.ActiveRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\Lib\ActiveRecord\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CUBRID.Data">
+      <HintPath>..\Lib\CUBRID\CUBRID.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Lib\ActiveRecord\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Lib\ActiveRecord\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\Lib\ActiveRecord\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\Lib\ActiveRecord\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\IEntityData.cs" />
+    <Compile Include="Base\KPActiveRecordValidationBase.cs" />
+    <Compile Include="Domain\AbstractPrimaryKey.cs" />
+    <Compile Include="Domain\Column.cs" />
+    <Compile Include="Domain\CompositeKey.cs" />
+    <Compile Include="Domain\Connection.cs" />
+    <Compile Include="Domain\ForeignKey.cs" />
+    <Compile Include="Domain\HasMany.cs" />
+    <Compile Include="Domain\IPrimaryKey.cs" />
+    <Compile Include="Domain\PrimaryKey.cs" />
+    <Compile Include="Domain\Table.cs" />
+    <Compile Include="Extension\Extensions.cs" />
+    <Compile Include="ORM\KPBooleanModelEntity.cs" />
+    <Compile Include="ORM\KPColumnModelEntity.cs" />
+    <Compile Include="ORM\KPEntityModelEntity.cs" />
+    <Compile Include="ORM\KPEnumModelEntity.cs" />
+    <Compile Include="ORM\KPFormItemButtonEntity.cs" />
+    <Compile Include="ORM\KPFormItemCheckBoxEntity.cs" />
+    <Compile Include="ORM\KPFormItemComboEntity.cs" />
+    <Compile Include="ORM\KPFormItemDateTimeEntity.cs" />
+    <Compile Include="ORM\KPFormItemEntityEntity.cs" />
+    <Compile Include="ORM\KPFormItemGridEntity.cs" />
+    <Compile Include="ORM\KPFormItemPasswordEntity.cs" />
+    <Compile Include="ORM\KPFormItemTextEntity.cs" />
+    <Compile Include="ORM\KPFormItemZoomEntity.cs" />
+    <Compile Include="ORM\KPMappingEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KPCodeGen.Attibute\KPCodeGen.Attibute.csproj">
+      <Project>{9fd70cb4-896f-45ee-b81f-cf65593942db}</Project>
+      <Name>KPCodeGen.Attibute</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KPCodeGen.Enumerator\KPCodeGen.Enumerator.csproj">
+      <Project>{a38667b0-55c1-4a61-813f-3bbcf1d2c4d0}</Project>
+      <Name>KPCodeGen.Enumerator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
